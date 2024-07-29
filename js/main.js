@@ -22,14 +22,14 @@ function creatMovieCard(movie){
         <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
         <h3>${movie.title}</h3>
         <p>${movie.overview}</p>
-        <span>Rating: ${movie.vote_average}</span>
+        <span>별점: ${movie.vote_average}</span>
     `;
-    card.addEventListener('click', ()=> alert (`movie id ${movie.id}`));
+    card.addEventListener('click', ()=> alert (`영화 ID : ${movie.id}`));
     return card;
 }
 
-document.getElementById('search-button').addEventListener('click', () => {
-  let value = document.getElementById('search-input').value.toUpperCase();
+document.getElementById('src_btn').addEventListener('click', () => {
+  let value = document.getElementById('src_inp').value.toUpperCase();
   let titles = document.querySelectorAll('.movie-card');
   console.log(value)
   console.log(titles)
@@ -44,3 +44,15 @@ document.getElementById('search-button').addEventListener('click', () => {
   })
   event.preventDefault();
 });
+
+
+let frmheight = document.querySelector('.src_frm');
+
+window.addEventListener('scroll', () => {
+  if(window.scrollY  >= frmheight.clientHeight + 85){
+    frmheight.classList.add('on');
+  }
+  else{
+    frmheight.classList.remove('on');
+  }
+}, true);
